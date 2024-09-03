@@ -26,10 +26,10 @@ fi
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-        echo " $R $2 is not installed $N"
+        echo -e " $R $2 is not installed $N"
         exit 1
     else
-        echo " $G $2 is installed  $N"
+        echo -e " $G $2 is installed  $N"
     fi
 
 }
@@ -41,10 +41,10 @@ do
     dnf list installed $package
     if [ $? -ne 0 ]
     then 
-        echo " $package is not installed..... Please install the package.."
+        echo -e "$G $package is not installed..... Please install the package.. $N"
         dnf install $package -y
         VALIDATE $? "Installing $package"
     else
-        echo "$package Already installed"
+        echo -e "$G $package Already installed $N"
     fi
 done
