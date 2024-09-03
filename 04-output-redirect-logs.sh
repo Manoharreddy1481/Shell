@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGS_FOLDER="var/log/shell-script"
+LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
@@ -27,10 +27,10 @@ fi
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-        echo -e " $R $2 is not installed $N" &>>LOG_FILE
+        echo -e " $R $2 is not installed $N" &>>$LOG_FILE
         exit 1
     else
-        echo -e " $G $2 is installed  $N" &>>LOG_FILE
+        echo -e " $G $2 is installed  $N" &>>$LOG_FILE
     fi
 
 }
@@ -44,10 +44,10 @@ do
     dnf list installed $package
     if [ $? -ne 0 ]
     then 
-        echo -e "$G $package is not installed..... Please install the package.. $N" &>>LOG_FILE
+        echo -e "$G $package is not installed..... Please install the package.. $N" &>>$LOG_FILE
         dnf install $package -y
         VALIDATE $? "Installing $package"
     else
-        echo -e "$G $package Already installed $N" &>>LOG_FILE
+        echo -e "$G $package Already installed $N" &>>$LOG_FILE
     fi
 done
