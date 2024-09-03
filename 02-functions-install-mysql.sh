@@ -11,11 +11,17 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 USERID=$(id -u)
+
+CHECK_ROOT(){
+
 if [ $USERID -ne 0 ]
 then
     echo -e " $R proceed to install the mysql with root previllages $N"
     exit 1
 fi
+
+}
+
 
 VALIDATE() {
     if [ $1 -ne 0 ]
@@ -27,6 +33,8 @@ VALIDATE() {
     fi
 
 }
+
+CHECK_ROOT
 
 dnf list installed mysql
 
