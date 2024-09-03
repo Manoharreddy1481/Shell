@@ -38,7 +38,7 @@ fi
 
 echo "Working on installation of GIT"
 
-dnf list installed gitttt
+dnf list installed git
 
 if [ $? -ne 0 ]
 then 
