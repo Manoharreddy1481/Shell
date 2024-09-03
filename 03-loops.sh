@@ -42,7 +42,7 @@ do
     if [ $? -ne 0 ]
     then 
         echo " $package is not installed..... Please install the package.."
-        dnf install $package
+        dnf install $package -y
         VALIDATE $? "Installing $package"
     else
         echo "$package Already installed"
