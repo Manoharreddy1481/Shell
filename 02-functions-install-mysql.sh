@@ -32,24 +32,24 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
 then
-    echo " $Y Proceed on installation of mysql $N"
+    echo -e " $Y Proceed on installation of mysql $N"
     dnf install mysql -y
     VALIDATE $? "$Y Installing MYSQL $N" 
 else
-    echo "$G MYSql is already installed. $N"
+    echo -e "$G MYSql is already installed. $N"
 fi
 
-echo "$Y Working on installation of GIT $N"
+echo -e "$Y Working on installation of GIT $N"
 
 dnf list installed git
 
 if [ $? -ne 0 ]
 then 
-    echo " $G Proceed to install the GIT $N"
+    echo -e " $G Proceed to install the GIT $N"
     dnf install git -y
     VALIDATE $? " $G Installing Git $N"
 else 
-    echo "$G GIT is already installed. $N" 
+    echo -e "$G GIT is already installed. $N" 
 fi
 
 
