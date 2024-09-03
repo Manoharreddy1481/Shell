@@ -45,7 +45,7 @@ do
     if [ $? -ne 0 ]
     then 
         echo -e "$G $package is not installed..... Please install the package.. $N" &>>$LOG_FILE
-        dnf install $package -y
+        dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "Installing $package"
     else
         echo -e "$G $package Already installed $N" &>>$LOG_FILE
