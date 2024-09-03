@@ -30,6 +30,25 @@ else
     echo "MYSql is already installed."
 fi
 
+echo "Working on installation of GIT"
+
+dnf list installed git
+
+if [ $? -ne 0 ]
+then 
+    echo "Proceed to install the GIT"
+    dnf install git -y
+    if [ $? -ne 0 ]
+    then 
+        echo "Installation of git is UNSUCCESSFUL."
+    else
+        echo "Installation of git is SUCCESSFUL."
+    fi
+else 
+    echo "GIT is already installed." 
+fi
+
+
 
 
 
