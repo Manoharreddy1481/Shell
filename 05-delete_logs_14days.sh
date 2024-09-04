@@ -8,10 +8,10 @@ else
     echo "$source_dir does not exists"
     exit 1
 fi
-files=$(find $source_dir "*.log" -mtime +14)
+files=$(find $source_dir -name "*.log" -mtime +14)
 echo "files : $files"
 while IFS= read -r line
 do
-    echo "Deleting the file : $line"
+    echo "Deleting the file: $line"
     rm -rf $line
 done <<< $files
