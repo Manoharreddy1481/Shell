@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_dir="/home/ec2-user/logs
+source_dir=/home/ec2-user/logs
 if [ -d $source_dir ]
 then
     echo "$source_dir  exists"
