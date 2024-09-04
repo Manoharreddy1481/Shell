@@ -10,9 +10,9 @@ else
 fi
 files=$(find $source_dir -name "*.log" -mtime +14)
 echo "files : $files"
-# while IFS= read -r file
-# do
-#     echo "Deleting the file: $file"
-#     rm -rf $file
-# done <<< $files
+while IFS= read -r file
+do
+    echo "Deleting the file: $file"
+    rm -rf $file
+done <<< $files
 
