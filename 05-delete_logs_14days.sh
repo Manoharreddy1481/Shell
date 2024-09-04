@@ -16,13 +16,3 @@ do
     rm -rf $file
 done <<< $files
 
-
-# FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
-# echo "Files: $FILES"
-
-# # dont use line, it is reserverd word
-# while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
-# do
-#     echo "Deleting file: $file"
-#     rm -rf $file
-# done <<< $FILES
